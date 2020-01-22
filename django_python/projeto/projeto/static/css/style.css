@@ -1,0 +1,43 @@
+li a {
+    color: white;
+}
+
+a {
+    color: white;
+}
+
+#inicio {
+  width: 24px;
+  height: 24px;
+  background: url("images/home.png") 0 0;
+}
+
+#reservas {
+  width: 24px;
+  height: 24px;
+  background: url("images/reserved.png") 0 0;
+}
+
+#contato {
+  width: 24px;
+  height: 24px;
+  background: url("images/contact.png") 0 0;
+}
+
+#cardapio {
+  width: 24px;
+  height: 24px;
+  background: url("images/menu.png") 0 0;
+}
+
+h1 {
+
+    color: red;
+
+}
+
+body{
+
+    background: url("images/django.png") no-repeat;
+
+}

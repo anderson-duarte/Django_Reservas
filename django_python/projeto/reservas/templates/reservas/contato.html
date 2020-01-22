@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contatos</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block conteudo %}
+        <form action="{% url 'reservas:contato' %}" method="post" class="elegant-aero">
+            {% csrf_token %}
+            {{form.as_ul}}
+            <input type="submit" value="Enviar" class="btn btn-primary">
+        </form>
+    {% endblock %}
+</body>
+</html>

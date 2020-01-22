@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Página de Detalhe</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block conteudo %}
+    <h1>{{cliente.nome}}</h1>
+    {% if error_message %}
+    <p><strong>{{error_message}}</strong></p>
+    {% endif %}
+
+    <form action="{% url 'reservas:confirma' cliente.id %}" method="post">
+        {% csrf_token %}
+        {% for reserva in cliente.reservas_set.all %}
+        <input type="checkbox" name="confirmacao" id="confirmacao{{forloop.counter}}"
+        value="{{reserva.id}}" {% if reserva.confirmada %}checked{% endif %}>
+
+        <label for="confirmacao{{forloop.counter}}">
+            Confirmar? - {{reserva.data_evento}} - {{reserva.pessoas}} pessoas
+        </label><br>
+        {% endfor %}
+        <input type="submit" value="Atualizar" class="btn btn-primary">
+    </form>
+    {% endblock %}
+</body>
+</html>

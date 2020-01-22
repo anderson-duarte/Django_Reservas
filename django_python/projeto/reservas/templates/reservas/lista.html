@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Reservas</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block conteudo %}
+    <h1>{{cliente.nome}}</h1>
+    <ul>
+        {% for reserva in cliente.reservas_confirmadas %}
+        <li>
+            Data da Reserva: {{reserva.data_reserva}}<br>
+            Data do Evento: {{reserva.data_evento}}<br>
+            Quantidade de Pessoas: {{reserva.pessoas}}
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'reservas:detalhe' cliente.id%}">
+        Deseja confirmar mais reservas?
+    </a>
+    {% endblock %}
+</body>
+</html>

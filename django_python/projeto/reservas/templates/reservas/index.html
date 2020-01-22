@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Pagina Inicial</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block conteudo %}
+    {% if ultimos_clientes %}
+    <ul>
+        {% for cliente in ultimos_clientes %}
+        <li>
+            <a href="/reservas/{{cliente.id}}">{{cliente.nome}}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>Nenhum Cliente Cadastrado</p>
+    {% endif %}
+
+    <h1>Metodo para Criar links para detalhes</h1>
+    {% if ultimos_clientes %}
+    <ul>
+        {% for cliente in ultimos_clientes %}
+        <li>
+            <a href="{% url 'reservas:detalhe' cliente.id %}">{{cliente.nome}}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>Nenhum Cliente Cadastrado</p>
+    {% endif %}
+    {% endblock %}
+</body>
+</html>
